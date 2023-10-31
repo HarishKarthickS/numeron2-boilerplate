@@ -69,8 +69,8 @@ randomise();
 plus.onclick = () => {
   if (number1 + number2 === number3) {
     score++;
-    randomise();
     resetTime(timerId);
+    randomise();
   } else {
     location.href = "gameover.html?score=" + score;
   }
@@ -79,8 +79,8 @@ plus.onclick = () => {
 minus.onclick = () => {
   if (number1 - number2 === number3) {
     score++;
-    randomise();
     resetTime(timerId);
+    randomise();
   } else {
     location.href = "gameover.html?score=" + score;
   }
@@ -89,8 +89,8 @@ minus.onclick = () => {
 mul.onclick = () => {
   if (number1 * number2 === number3) {
     score++;
-    randomise();
     resetTime(timerId);
+    randomise();
   } else {
     location.href = "gameover.html?score=" + score;
   }
@@ -99,8 +99,8 @@ mul.onclick = () => {
 divide.onclick = () => {
   if (Math.floor(number1 / number2) === number3) {
     score++;
-    randomise();
     resetTime(timerId);
+    randomise();
   } else {
     location.href = "gameover.html?score=" + score;
   }
@@ -109,19 +109,19 @@ divide.onclick = () => {
 modulus.onclick = () => {
   if (number1 % number2 === number3) {
     score++;
-    randomise();
     resetTime(timerId);
+    randomise();
   } else {
     location.href = "gameover.html?score=" + score;
   }
 };
 
 // Iteration 7: Making Timer functional
-var time = 20;
+var time = 25;
 var timerId;
 
 function startTimer() {
-  time = 20;
+  time = 25;
   timer.innerHTML = time;
   timerId = setInterval(() => {
     time--;
@@ -129,3 +129,10 @@ function startTimer() {
     timer.innerHTML = time;
   }, 1000);
 }
+
+function resetTime(intervalId) {
+  clearInterval(intervalId);
+  startTimer();
+}
+
+startTimer();
